@@ -28,9 +28,12 @@ struct node *head = NULL;
 struct node *tail = NULL;
 
 bool isEmpty();
+void toMenu();
 void WriteFile();
 void InsertData(struct Apotek apotek);
 void DisplayData();
+void SearchData();
+void SortData();
 
 void main()
 {
@@ -65,6 +68,7 @@ void main()
                 {
                 case 1:
                     WriteFile();
+                    toMenu();
                     break;
                 case 2:
                     printf("Masukan Nomor Pasien            : "); scanf("%d", &apotek.noPasien);
@@ -74,22 +78,26 @@ void main()
                     printf("Masukan Nama Obat Pasien        : "); scanf("%s", apotek.namaObat);
                     fflush(stdin);
                     InsertData(apotek);
-                    getch();
+                    toMenu();
                     break;
                 case 3:
                     DisplayData(head);
-                    getch();
+                    toMenu();
                     break;
 /*
                 case 4:
                     break;
                 case 5:
                     break;
+*/
                 case 6:
+                    SearchData();
+                    toMenu();
                     break;
                 case 7:
+                    SortData();
+                    toMenu();
                     break;
-*/
                 default:
                     if(pilihan != 8)
                     {
@@ -109,6 +117,12 @@ void main()
 bool isEmpty()
 {
     return head == NULL;
+}
+
+void toMenu()
+{
+    printf("\n\nTekan apa saja untuk kembali ke menu utama ");
+    getch();
 }
 
 void WriteFile()
@@ -167,5 +181,78 @@ void DisplayData()
             printf("Nama Obat Pasien        : %s\n\n", current->apotek.namaObat);
             current = current->next;
         }
+    }
+}
+
+void SearchData()
+{
+    int noP, found = 0;
+    struct node *current = head;
+    if(isEmpty(head))
+    {
+        printf("Data dalam Database Kosong");
+    } else {
+        printf("Masukan nomor pasien yang ingin dicari : "); scanf("%d", &noP);
+        while(current != NULL)
+        {
+            if(current->apotek.noPasien == noP)
+            {
+                printf("Data yang dicari ditemukan! : \n\n");
+                printf("Nomor Pasien            : %d\n", current->apotek.noPasien);
+                printf("Nama Pasien             : %s\n", current->apotek.namaPasien);
+                printf("Jenis Kelamin Pasien    : %s\n", current->apotek.jenisKelamin);
+                printf("Umur Pasien             : %d\n", current->apotek.umurPasien);
+                printf("Nama Obat Pasien        : %s\n\n", current->apotek.namaObat);
+                found = 1;
+                break;
+            }
+            current = current->next;
+        }
+        if(found == 0)
+        {
+            printf("Data yang dicari tidak ditemukan!");
+        }
+    }
+}
+
+void SortData()
+{
+    struct node *i, *j;
+    int tempInt;
+    char tempChar[20];
+
+    if(isEmpty(head))
+    {
+        printf("Data dalam Database Kosong");
+    } else {
+        for(i = head; i != NULL; i = i->next)
+        {
+            for(j = i->next; j != NULL; j = j->next)
+            {
+                if((i->apotek.noPasien) > (j->apotek.noPasien))
+                {
+                    tempInt = i->apotek.noPasien;
+                    i->apotek.noPasien = j->apotek.noPasien;
+                    j->apotek.noPasien = tempInt;
+
+                    tempInt = i->apotek.umurPasien;
+                    i->apotek.umurPasien = j->apotek.umurPasien;
+                    j->apotek.umurPasien = tempInt;
+
+                    strcpy(tempChar, i->apotek.namaPasien);
+                    strcpy(i->apotek.namaPasien, j->apotek.namaPasien);
+                    strcpy(j->apotek.namaPasien, tempChar);
+
+                    strcpy(tempChar, i->apotek.jenisKelamin);
+                    strcpy(i->apotek.jenisKelamin, j->apotek.jenisKelamin);
+                    strcpy(j->apotek.jenisKelamin, tempChar);
+
+                    strcpy(tempChar, i->apotek.namaObat);
+                    strcpy(i->apotek.namaObat, j->apotek.namaObat);
+                    strcpy(j->apotek.namaObat, tempChar);
+                }
+            }
+        }
+        printf("Data sudah berhasil disorting secara Ascending");
     }
 }
