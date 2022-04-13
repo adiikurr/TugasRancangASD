@@ -223,7 +223,6 @@ void loading(){
 }
 
 void author(){
-    short nm=0, ni=0;
     int a=45,b=45,c=9,d=9,x=0;
     gotoxy(35,8);printf("+");while(a--){printf("=");Sleep(7);}printf("+");
     gotoxy(81,18);printf("+");
