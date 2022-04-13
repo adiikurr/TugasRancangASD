@@ -149,7 +149,7 @@ void DisplayData()
     int a,i=1;
     if(isEmpty(head))
     {
-        printf("Data dalam Database Kosong");
+        printf("Data dalam Database Kosong");back();
     } else {
         current = head;
         while(current != NULL){
@@ -249,7 +249,7 @@ void deleteData(){
     int a=0,nomor,b,ada=0;char del;
     if(isEmpty(head))
     {
-        printf("Data dalam Database Kosong");
+        printf("Data dalam Database Kosong");back();
     }else{
         struct Apotek *temp = head;
         current=head;
@@ -363,7 +363,7 @@ int noP, found = 0;
     struct Apotek *current = head;
     if(isEmpty(head))
     {
-        printf("Data dalam Database Kosong");
+        printf("Data dalam Database Kosong");back();
     } else {
         printf("Masukan nomor pasien yang ingin dicari : "); scanf("%d", &noP);
         while(current != NULL)
@@ -394,6 +394,10 @@ void historyData(){
 
 void sortData(){
     int ad=0;
+    if(isEmpty(head)){
+        printf("Data dalam Database Kosong");
+        back();
+    }
     printf("Sorting Data Berdasarkan\n");
     printf("1. Ascending\n");
     printf("2. Descending\n");
