@@ -19,6 +19,9 @@
 #define BKSP 8
 #define TAB 9
 
+//(-riwayat)
+//tampilan sedang dalam pengerjaan
+//kalo ada bug/error kasih tau yak
 
 struct Apotek
 {
@@ -398,123 +401,367 @@ void sortData(){
     scanf("%d",&ad);
 
     switch(ad){
-        case 1:system("cls");sortDataAscend();
-        case 2:system("cls");sortDataDescend();
-        default:printf("Pilihan tidak tersedia");gotoxy(45,26);printf("Tekan enter untuk kembali");getch();
+        case 1:system("cls");sortDataAscend();break;
+        case 2:system("cls");sortDataDescend();break;
+        default:printf("Pilihan tidak tersedia");gotoxy(45,26);printf("Tekan enter untuk kembali");getch();sortData();break;
     }
 
 
 }
-//MAAP NGERUBAH ALGO SORT U
-//SEDANG DALAM PERBAIKAN
+
 void sortDataAscend(){
-//    struct node *i, *j;
-//    int tempInt,pilih;
-//    char tempChar[20];
-//
-//    if(isEmpty(head))
-//    {
-//        printf("Data dalam Database Kosong");
-//    }
-//    printf("Urutkan Data Berdasarkan :\n");
-//    printf("1. Nomor Pasien\n");
-//    printf("2. Nama Pasien\n");
-//    printf("3. Jenis Kelamin\n");
-//    printf("4. Umur Pasien\n");
-//    printf("5. Nama Pasien\n");
-//    scanf("%d", &pilih);
-////    switch(pilih){
-////        case 1:
-////        case 2:
-////        case 3:
-////        case 4:
-////        case 5:
-////        default:
-////
-////    }
-//        for(i = head; i != NULL; i = i->next)
-//        {
-//            for(j = i->next; j != NULL; j = j->next)
-//            {
-//                if((i->apotek.noPasien) > (j->apotek.noPasien))
-//                {
-//                    tempInt = i->apotek.noPasien;
-//                    i->apotek.noPasien = j->apotek.noPasien;
-//                    j->apotek.noPasien = tempInt;
-//
-//                    tempInt = i->apotek.umurPasien;
-//                    i->apotek.umurPasien = j->apotek.umurPasien;
-//                    j->apotek.umurPasien = tempInt;
-//
-//                    strcpy(tempChar, i->apotek.namaPasien);
-//                    strcpy(i->apotek.namaPasien, j->apotek.namaPasien);
-//                    strcpy(j->apotek.namaPasien, tempChar);
-//
-//                    strcpy(tempChar, i->apotek.jenisKelamin);
-//                    strcpy(i->apotek.jenisKelamin, j->apotek.jenisKelamin);
-//                    strcpy(j->apotek.jenisKelamin, tempChar);
-//
-//                    strcpy(tempChar, i->apotek.namaObat);
-//                    strcpy(i->apotek.namaObat, j->apotek.namaObat);
-//                    strcpy(j->apotek.namaObat, tempChar);
-//                }
-//            }
-//        }
-//        printf("Data sudah berhasil disorting secara Ascending");
-//
-//    back();
+    struct Apotek *i, *j;
+    int tempInt,pilih;
+    char tempChar[20];
+
+    if(isEmpty(head))
+    {
+        printf("Data dalam Database Kosong");
+        back();
+    }
+    printf("1. Nomor Pasien\n");
+    printf("2. Nama Pasien\n");
+    printf("3. Jenis Kelamin\n");
+    printf("4. Umur Pasien\n");
+    printf("5. Nama Obat\n");
+    scanf("%d", &pilih);
+
+    switch(pilih){
+        case 1:
+            for(i = head; i != NULL; i = i->next)
+            {
+                for(j = i->next; j != NULL; j = j->next)
+                    {
+                        if((i->noPasien) > (j->noPasien))
+                        {
+                            tempInt = i->noPasien;
+                            i->noPasien = j->noPasien;
+                            j->noPasien = tempInt;
+
+                            tempInt = i->umurPasien;
+                            i->umurPasien = j->umurPasien;
+                            j->umurPasien = tempInt;
+
+                            strcpy(tempChar, i->namaPasien);
+                            strcpy(i->namaPasien, j->namaPasien);
+                            strcpy(j->namaPasien, tempChar);
+
+                            strcpy(tempChar, i->jenisKelamin);
+                            strcpy(i->jenisKelamin, j->jenisKelamin);
+                            strcpy(j->jenisKelamin, tempChar);
+
+                            strcpy(tempChar, i->namaObat);
+                            strcpy(i->namaObat, j->namaObat);
+                            strcpy(j->namaObat, tempChar);
+                        }
+                    }
+            }
+            printf("Data sudah berhasil disorting secara Ascending");back();
+            break;
+        case 2:
+            for(i = head; i != NULL; i = i->next)
+            {
+                for(j = i->next; j != NULL; j = j->next)
+                    {
+                        if(strcmp(i->namaPasien, j->namaPasien)>0)
+                        {
+                            tempInt = i->noPasien;
+                            i->noPasien = j->noPasien;
+                            j->noPasien = tempInt;
+
+                            tempInt = i->umurPasien;
+                            i->umurPasien = j->umurPasien;
+                            j->umurPasien = tempInt;
+
+                            strcpy(tempChar, i->namaPasien);
+                            strcpy(i->namaPasien, j->namaPasien);
+                            strcpy(j->namaPasien, tempChar);
+
+                            strcpy(tempChar, i->jenisKelamin);
+                            strcpy(i->jenisKelamin, j->jenisKelamin);
+                            strcpy(j->jenisKelamin, tempChar);
+
+                            strcpy(tempChar, i->namaObat);
+                            strcpy(i->namaObat, j->namaObat);
+                            strcpy(j->namaObat, tempChar);
+                        }
+                    }
+            }
+            printf("Data sudah berhasil disorting secara Ascending");back();
+            break;
+        case 3:
+            for(i = head; i != NULL; i = i->next)
+            {
+                for(j = i->next; j != NULL; j = j->next)
+                    {
+                        if(strcmp(i->jenisKelamin, j-> next ->  jenisKelamin)>0)
+                        {
+                            tempInt = i->noPasien;
+                            i->noPasien = j->noPasien;
+                            j->noPasien = tempInt;
+
+                            tempInt = i->umurPasien;
+                            i->umurPasien = j->umurPasien;
+                            j->umurPasien = tempInt;
+
+                            strcpy(tempChar, i->namaPasien);
+                            strcpy(i->namaPasien, j->namaPasien);
+                            strcpy(j->namaPasien, tempChar);
+
+                            strcpy(tempChar, i->jenisKelamin);
+                            strcpy(i->jenisKelamin, j->jenisKelamin);
+                            strcpy(j->jenisKelamin, tempChar);
+
+                            strcpy(tempChar, i->namaObat);
+                            strcpy(i->namaObat, j->namaObat);
+                            strcpy(j->namaObat, tempChar);
+                        }
+                    }
+            }
+            printf("Data sudah berhasil disorting secara Ascending");back();
+            break;
+        case 4:
+            for(i = head; i != NULL; i = i->next)
+            {
+                for(j = i->next; j != NULL; j = j->next)
+                    {
+                        if((i->umurPasien) > (j->umurPasien))
+                        {
+                            tempInt = i->noPasien;
+                            i->noPasien = j->noPasien;
+                            j->noPasien = tempInt;
+
+                            tempInt = i->umurPasien;
+                            i->umurPasien = j->umurPasien;
+                            j->umurPasien = tempInt;
+
+                            strcpy(tempChar, i->namaPasien);
+                            strcpy(i->namaPasien, j->namaPasien);
+                            strcpy(j->namaPasien, tempChar);
+
+                            strcpy(tempChar, i->jenisKelamin);
+                            strcpy(i->jenisKelamin, j->jenisKelamin);
+                            strcpy(j->jenisKelamin, tempChar);
+
+                            strcpy(tempChar, i->namaObat);
+                            strcpy(i->namaObat, j->namaObat);
+                            strcpy(j->namaObat, tempChar);
+                        }
+                    }
+            }
+            printf("Data sudah berhasil disorting secara Ascending");back();
+            break;
+        case 5:
+            for(i = head; i != NULL; i = i->next)
+            {
+                for(j = i->next; j != NULL; j = j->next)
+                    {
+                        if(strcmp(i->namaObat, j->namaObat)>0)
+                        {
+                            tempInt = i->noPasien;
+                            i->noPasien = j->noPasien;
+                            j->noPasien = tempInt;
+
+                            tempInt = i->umurPasien;
+                            i->umurPasien = j->umurPasien;
+                            j->umurPasien = tempInt;
+
+                            strcpy(tempChar, i->namaPasien);
+                            strcpy(i->namaPasien, j->namaPasien);
+                            strcpy(j->namaPasien, tempChar);
+
+                            strcpy(tempChar, i->jenisKelamin);
+                            strcpy(i->jenisKelamin, j->jenisKelamin);
+                            strcpy(j->jenisKelamin, tempChar);
+
+                            strcpy(tempChar, i->namaObat);
+                            strcpy(i->namaObat, j->namaObat);
+                            strcpy(j->namaObat, tempChar);
+                        }
+                    }
+            }
+            printf("Data sudah berhasil disorting secara Ascending");back();
+            break;
+        default:
+            printf("inputan salah");gotoxy(45,26);printf("Tekan enter untuk mengulang");getch();sortDataAscend();break;
+    }
 }
 void sortDataDescend(){
-//    struct node *i, *j;
-//    int tempInt;
-//    char tempChar[20];
-//
-//    if(isEmpty(head))
-//    {
-//        printf("Data dalam Database Kosong");
-//    } else {
-//        for(i = head; i != NULL; i = i->next)
-//        {
-//            for(j = i->next; j != NULL; j = j->next)
-//            {
-//                if((i->apotek.noPasien) < (j->apotek.noPasien))
-//                {
-//                    tempInt = i->apotek.noPasien;
-//                    i->apotek.noPasien = j->apotek.noPasien;
-//                    j->apotek.noPasien = tempInt;
-//
-//                    tempInt = i->apotek.umurPasien;
-//                    i->apotek.umurPasien = j->apotek.umurPasien;
-//                    j->apotek.umurPasien = tempInt;
-//
-//                    strcpy(tempChar, i->apotek.namaPasien);
-//                    strcpy(i->apotek.namaPasien, j->apotek.namaPasien);
-//                    strcpy(j->apotek.namaPasien, tempChar);
-//
-//                    strcpy(tempChar, i->apotek.jenisKelamin);
-//                    strcpy(i->apotek.jenisKelamin, j->apotek.jenisKelamin);
-//                    strcpy(j->apotek.jenisKelamin, tempChar);
-//
-//                    strcpy(tempChar, i->apotek.namaObat);
-//                    strcpy(i->apotek.namaObat, j->apotek.namaObat);
-//                    strcpy(j->apotek.namaObat, tempChar);
-//                }
-//            }
-//        }
-//        printf("Data sudah berhasil disorting secara Ascending");
-//    }
-//    back();
-}
+    struct Apotek *i, *j;
+    int tempInt,pilih;
+    char tempChar[20];
 
+    if(isEmpty(head))
+    {
+        printf("Data dalam Database Kosong");
+        back();
+    }
+    printf("1. Nomor Pasien\n");
+    printf("2. Nama Pasien\n");
+    printf("3. Jenis Kelamin\n");
+    printf("4. Umur Pasien\n");
+    printf("5. Nama Obat\n");
+    scanf("%d", &pilih);
 
-void rin(){
-    int a;
-    for(a=0;a<bdata;a++){
-            printf("Data ke - %i\n", a+1);
-            printf("Nomor Pasien            : %d\n", current->noPasien);
-            current = current->next;
-            printf("\n");
-        }
+    switch(pilih){
+        case 1:
+            for(i = head; i != NULL; i = i->next)
+            {
+                for(j = i->next; j != NULL; j = j->next)
+                    {
+                        if((i->noPasien) < (j->noPasien))
+                        {
+                            tempInt = i->noPasien;
+                            i->noPasien = j->noPasien;
+                            j->noPasien = tempInt;
+
+                            tempInt = i->umurPasien;
+                            i->umurPasien = j->umurPasien;
+                            j->umurPasien = tempInt;
+
+                            strcpy(tempChar, i->namaPasien);
+                            strcpy(i->namaPasien, j->namaPasien);
+                            strcpy(j->namaPasien, tempChar);
+
+                            strcpy(tempChar, i->jenisKelamin);
+                            strcpy(i->jenisKelamin, j->jenisKelamin);
+                            strcpy(j->jenisKelamin, tempChar);
+
+                            strcpy(tempChar, i->namaObat);
+                            strcpy(i->namaObat, j->namaObat);
+                            strcpy(j->namaObat, tempChar);
+                        }
+                    }
+            }
+            printf("Data sudah berhasil disorting secara Descending");back();
+            break;
+        case 2:
+            for(i = head; i != NULL; i = i->next)
+            {
+                for(j = i->next; j != NULL; j = j->next)
+                    {
+                        if(strcmp(j->namaPasien, i->namaPasien)>0)
+                        {
+                            tempInt = i->noPasien;
+                            i->noPasien = j->noPasien;
+                            j->noPasien = tempInt;
+
+                            tempInt = i->umurPasien;
+                            i->umurPasien = j->umurPasien;
+                            j->umurPasien = tempInt;
+
+                            strcpy(tempChar, i->namaPasien);
+                            strcpy(i->namaPasien, j->namaPasien);
+                            strcpy(j->namaPasien, tempChar);
+
+                            strcpy(tempChar, i->jenisKelamin);
+                            strcpy(i->jenisKelamin, j->jenisKelamin);
+                            strcpy(j->jenisKelamin, tempChar);
+
+                            strcpy(tempChar, i->namaObat);
+                            strcpy(i->namaObat, j->namaObat);
+                            strcpy(j->namaObat, tempChar);
+                        }
+                    }
+            }
+            printf("Data sudah berhasil disorting secara Descending");back();
+            break;
+        case 3:
+            for(i = head; i != NULL; i = i->next)
+            {
+                for(j = i->next; j != NULL; j = j->next)
+                    {
+                        if(strcmp(j->jenisKelamin, i->jenisKelamin)>0)
+                        {
+                            tempInt = i->noPasien;
+                            i->noPasien = j->noPasien;
+                            j->noPasien = tempInt;
+
+                            tempInt = i->umurPasien;
+                            i->umurPasien = j->umurPasien;
+                            j->umurPasien = tempInt;
+
+                            strcpy(tempChar, i->namaPasien);
+                            strcpy(i->namaPasien, j->namaPasien);
+                            strcpy(j->namaPasien, tempChar);
+
+                            strcpy(tempChar, i->jenisKelamin);
+                            strcpy(i->jenisKelamin, j->jenisKelamin);
+                            strcpy(j->jenisKelamin, tempChar);
+
+                            strcpy(tempChar, i->namaObat);
+                            strcpy(i->namaObat, j->namaObat);
+                            strcpy(j->namaObat, tempChar);
+                        }
+                    }
+            }
+            printf("Data sudah berhasil disorting secara Descending");back();
+            break;
+        case 4:
+            for(i = head; i != NULL; i = i->next)
+            {
+                for(j = i->next; j != NULL; j = j->next)
+                    {
+                        if((i->umurPasien) < (j->umurPasien))
+                        {
+                            tempInt = i->noPasien;
+                            i->noPasien = j->noPasien;
+                            j->noPasien = tempInt;
+
+                            tempInt = i->umurPasien;
+                            i->umurPasien = j->umurPasien;
+                            j->umurPasien = tempInt;
+
+                            strcpy(tempChar, i->namaPasien);
+                            strcpy(i->namaPasien, j->namaPasien);
+                            strcpy(j->namaPasien, tempChar);
+
+                            strcpy(tempChar, i->jenisKelamin);
+                            strcpy(i->jenisKelamin, j->jenisKelamin);
+                            strcpy(j->jenisKelamin, tempChar);
+
+                            strcpy(tempChar, i->namaObat);
+                            strcpy(i->namaObat, j->namaObat);
+                            strcpy(j->namaObat, tempChar);
+                        }
+                    }
+            }
+            printf("Data sudah berhasil disorting secara Descending");back();
+            break;
+        case 5:
+            for(i = head; i != NULL; i = i->next)
+            {
+                for(j = i->next; j != NULL; j = j->next)
+                    {
+                        if(strcmp(j->namaObat, i->namaObat)>0)
+                        {
+                            tempInt = i->noPasien;
+                            i->noPasien = j->noPasien;
+                            j->noPasien = tempInt;
+
+                            tempInt = i->umurPasien;
+                            i->umurPasien = j->umurPasien;
+                            j->umurPasien = tempInt;
+
+                            strcpy(tempChar, i->namaPasien);
+                            strcpy(i->namaPasien, j->namaPasien);
+                            strcpy(j->namaPasien, tempChar);
+
+                            strcpy(tempChar, i->jenisKelamin);
+                            strcpy(i->jenisKelamin, j->jenisKelamin);
+                            strcpy(j->jenisKelamin, tempChar);
+
+                            strcpy(tempChar, i->namaObat);
+                            strcpy(i->namaObat, j->namaObat);
+                            strcpy(j->namaObat, tempChar);
+                        }
+                    }
+            }
+            printf("Data sudah berhasil disorting secara Descending");back();
+            break;
+        default:
+            printf("inputan salah");gotoxy(45,26);printf("Tekan enter untuk mengulang");getch();sortDataDescend();break;
+    }
 }
 
 void updateData(){
