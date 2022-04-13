@@ -358,30 +358,81 @@ void hasil(char del, int nomor){
 
 
 void searchData(){
-
-int noP, found = 0;
-    struct Apotek *current = head;
+    int noP, found = 0,f,uP;
+    char naP[30],jeK[30],naO[30];
     if(isEmpty(head))
     {
         printf("Data dalam Database Kosong");back();
     } else {
-        printf("Masukan nomor pasien yang ingin dicari : "); scanf("%d", &noP);
-        while(current != NULL)
-        {
-            if(current->noPasien == noP)
-            {
-                printf("Data yang dicari ditemukan! : \n\n");
-                printf("Nomor Pasien            : %d\n", current->noPasien);
-                printf("Nama Pasien             : %s\n", current->namaPasien);
-                printf("Jenis Kelamin Pasien    : %s\n", current->jenisKelamin);
-                printf("Umur Pasien             : %d\n", current->umurPasien);
-                printf("Nama Obat Pasien        : %s\n\n", current->namaObat);
+        current=head;
+        gotoxy(43,6);printf("=== Mencari data pasien apotek ===");
+        gotoxy(40,9);printf("Apa yang ingin Anda cari?");
+        gotoxy(40,10);printf("1. Nomor Pasien \t\t3. Jenis Kelamin");
+        gotoxy(40,11);printf("2. Nama Pasien\t\t\t4. Umur");
+        gotoxy(40,12);printf("5. Nama Obat");
+        gotoxy(40,13);printf("Masukan data yang ingin dicari : "); scanf("%d", &f);
+
+        switch(f){
+        case 1:
+            gotoxy(40,15);printf("Masukan nomor pasien yang ingin dicari : "); scanf("%d", &noP);
+            while(current != NULL){
+                    if(current->noPasien == noP){
+                        displaySearch();
+                        found = 1;
+                        break;
+                    }
+                current = current->next;
+            }
+            break;
+        case 2:
+            gotoxy(40,15);printf("Masukan nama pasien yang ingin dicari : "); scanf(" %[^\n]", &naP);
+            while(current != NULL){
+                    if(strcmp(current->namaPasien,naP)==0){
+                        displaySearch();
+                        found = 1;
+                        break;
+                    }
+                current = current->next;
+            }
+            break;
+        case 3:
+            gotoxy(40,15);printf("Masukan jenis kelamin pasien yang ingin dicari : "); scanf(" %[^\n]", &jeK);
+            while(current != NULL){
+                    if(strcmp(current->jenisKelamin , jeK)==0){
+                        displaySearch();
+                        found = 1;
+                        break;
+                    }
+                current = current->next;
+            }
+            break;
+        case 4:
+            gotoxy(40,15);printf("Masukan umur pasien yang ingin dicari : "); scanf("%d", &uP);
+            while(current != NULL){
+                    if(current->umurPasien == uP){
+                        displaySearch();
+                        found = 1;
+                        break;
+                    }
+                    current = current->next;
+            }
+            break;
+        case 5:
+            gotoxy(40,15);printf("Masukan nama obat pasien yang ingin dicari : "); scanf(" %[^\n]", &naO);
+            while(current != NULL){
+            if(strcmp(current->namaObat,naO)==0){
+                displaySearch(naO);
                 found = 1;
                 break;
+                }
+                current = current->next;
             }
-            current = current->next;
+            break;
+        default:
+            gotoxy(50,17);printf("Pilihan tidak ada");getch();searchData();
+        }
 
-        }  back();
+
         if(found == 0)
         {
             printf("Data yang dicari tidak ditemukan!");
@@ -389,6 +440,17 @@ int noP, found = 0;
 
     }
 }
+
+void displaySearch(){
+    printf("Data yang dicari ditemukan! : \n\n");
+    printf("Nomor Pasien            : %d\n", current->noPasien);
+    printf("Nama Pasien             : %s\n", current->namaPasien);
+    printf("Jenis Kelamin Pasien    : %s\n", current->jenisKelamin);
+    printf("Umur Pasien             : %d\n", current->umurPasien);
+    printf("Nama Obat Pasien        : %s\n\n", current->namaObat);
+    back();
+}
+
 void historyData(){
 }
 
