@@ -19,7 +19,7 @@
 #define BKSP 8
 #define TAB 9
 
-//(-riwayat)
+//-riwayat
 //tampilan sedang dalam pengerjaan
 //kalo ada bug/error kasih tau yak
 
