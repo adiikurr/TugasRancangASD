@@ -314,48 +314,6 @@ void deleteData(){
         }    }
 }
 
-void hasil(char del, int nomor){
-        struct Apotek *temp = head;
-        current = head;
-
-        //cari posisi index data yang mau dihapus
-        int index = 0;
-        while (current != NULL) {
-            if (temp->noPasien == nomor){
-                break;
-            }
-            index++;
-            current = current->next;
-        }
-
-
-        if (index == 0){
-            head = temp->next;
-            free(temp);
-            printf("\nData berhasil dihapus");back();
-        }else{
-
-            //nyari dan mindahin posisi temp ke data yang mau dicari
-            for (int i=0; temp!=NULL && i<index-1; i++){
-                temp = temp->next;
-            }
-
-            if (temp == NULL || temp->next == NULL){
-                printf("\nData tidak ada");
-                gotoxy(43,18);printf("TEKAN ENTER UNTUK MENGULANG...");
-                getch();system("cls");
-                deleteData();
-            }else{
-                struct Apotek *next = temp->next->next;
-                free(temp->next);
-                temp->next = next;
-                printf("\nData berhasil dihapus");
-                back();
-            }
-        }
-    }
-
-
 void searchData(){
     int noP, found = 0,f,uP;
     char naP[30],jeK[30],naO[30];
