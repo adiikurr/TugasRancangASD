@@ -412,16 +412,14 @@ void historyData(){
 }
 
 void sortData(){
+    noData();
+
     int ad=0;
-    if(isEmpty(head)){
-        printf("Data dalam Database Kosong");
-        back();
-    }
-    printf("Sorting Data Berdasarkan\n");
-    printf("1. Ascending\n");
-    printf("2. Descending\n");
-    printf("Masukkan pilihan : ");
-    scanf("%d",&ad);
+
+    gotoxy(40,9);printf("Sorting Data Berdasarkan");
+    gotoxy(40,10); printf("1. Ascending");
+    gotoxy(40,11);printf("2. Descending");
+    gotoxy(40,12);printf("Masukkan pilihan : ");scanf("%d",&ad);
 
     switch(ad){
         case 1:system("cls");sortDataAscend();break;
@@ -433,21 +431,17 @@ void sortData(){
 }
 
 void sortDataAscend(){
+    noData();
     struct Apotek *i, *j;
     int tempInt,pilih;
     char tempChar[20];
 
-    if(isEmpty(head))
-    {
-        printf("Data dalam Database Kosong");
-        back();
-    }
-    printf("1. Nomor Pasien\n");
-    printf("2. Nama Pasien\n");
-    printf("3. Jenis Kelamin\n");
-    printf("4. Umur Pasien\n");
-    printf("5. Nama Obat\n");
-    scanf("%d", &pilih);
+    gotoxy(43,6);printf("=== Menyortir data pasien apotek ===");
+    gotoxy(40,9);printf("Apa yang ingin anda sortir?");
+    gotoxy(40,10);printf("1. Nomor Pasien \t\t3. Jenis Kelamin");
+    gotoxy(40,11);printf("2. Nama Pasien\t\t\t4. Umur");
+    gotoxy(40,12);printf("5. Nama Obat");
+    gotoxy(40,13);printf("Masukan data yang ingin sortir : "); scanf("%d", &pilih);
 
     switch(pilih){
         case 1:
@@ -479,7 +473,6 @@ void sortDataAscend(){
                         }
                     }
             }
-            printf("Data sudah berhasil disorting secara Ascending");back();
             break;
         case 2:
             for(i = head; i != NULL; i = i->next)
@@ -510,14 +503,13 @@ void sortDataAscend(){
                         }
                     }
             }
-            printf("Data sudah berhasil disorting secara Ascending");back();
             break;
         case 3:
             for(i = head; i != NULL; i = i->next)
             {
                 for(j = i->next; j != NULL; j = j->next)
                     {
-                        if(strcmp(i->jenisKelamin, j-> next ->  jenisKelamin)>0)
+                        if(strcmp(i->jenisKelamin, j ->  jenisKelamin)>0)
                         {
                             tempInt = i->noPasien;
                             i->noPasien = j->noPasien;
@@ -541,7 +533,6 @@ void sortDataAscend(){
                         }
                     }
             }
-            printf("Data sudah berhasil disorting secara Ascending");back();
             break;
         case 4:
             for(i = head; i != NULL; i = i->next)
@@ -572,7 +563,6 @@ void sortDataAscend(){
                         }
                     }
             }
-            printf("Data sudah berhasil disorting secara Ascending");back();
             break;
         case 5:
             for(i = head; i != NULL; i = i->next)
@@ -603,28 +593,25 @@ void sortDataAscend(){
                         }
                     }
             }
-            printf("Data sudah berhasil disorting secara Ascending");back();
             break;
         default:
             printf("inputan salah");gotoxy(45,26);printf("Tekan enter untuk mengulang");getch();sortDataAscend();break;
     }
+    system("cls");DisplayData();
 }
+
 void sortDataDescend(){
+    noData();
     struct Apotek *i, *j;
     int tempInt,pilih;
     char tempChar[20];
 
-    if(isEmpty(head))
-    {
-        printf("Data dalam Database Kosong");
-        back();
-    }
-    printf("1. Nomor Pasien\n");
-    printf("2. Nama Pasien\n");
-    printf("3. Jenis Kelamin\n");
-    printf("4. Umur Pasien\n");
-    printf("5. Nama Obat\n");
-    scanf("%d", &pilih);
+    gotoxy(43,6);printf("=== Mencari data pasien apotek ===");
+    gotoxy(40,9);printf("Apa yang ingin Anda cari?");
+    gotoxy(40,10);printf("1. Nomor Pasien \t\t3. Jenis Kelamin");
+    gotoxy(40,11);printf("2. Nama Pasien\t\t\t4. Umur");
+    gotoxy(40,12);printf("5. Nama Obat");
+    gotoxy(40,13);printf("Masukan data yang ingin dicari : "); scanf("%d", &pilih);
 
     switch(pilih){
         case 1:
@@ -785,6 +772,7 @@ void sortDataDescend(){
         default:
             printf("inputan salah");gotoxy(45,26);printf("Tekan enter untuk mengulang");getch();sortDataDescend();break;
     }
+    system("cls");DisplayData();
 }
 
 void updateData(){
