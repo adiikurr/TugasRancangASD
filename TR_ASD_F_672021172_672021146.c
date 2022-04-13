@@ -787,69 +787,39 @@ void updateData(){
 
             switch(pil){
             case 1://nopasien
-               while (current != NULL) {
-                    if (current->noPasien == nop){
-                        printf("Data saat ini : %d ",current->noPasien);
-                        printf("Data baru : ");scanf("%d",&nobaru);
-                        current->noPasien = nobaru;
-                        printf("\nData berhasil diedit");
-                        found=1;
-                        break;
-                   }
-                    current = current->next;
-               }
-            break;
+               printf("Data saat ini : %d ",current->noPasien);
+               printf("Data baru : ");scanf("%d",&nobaru);
+               current->noPasien = nobaru;
+               printf("\nData berhasil diedit");
+               found=1;
+               break;
             case 2://namapasien
-                while (current != NULL) {
-                    if (current->noPasien == nop){
-                        printf("Data saat ini : %s ",current->namaPasien);
-                        printf("Data baru : ");
-                        scanf(" %[^\n]",&namabaru);
-                        strcpy(current->namaPasien, namabaru);
-                        found=1;
-                        break;
-                   }
-                    current = current->next;
-                }
+               printf("Data saat ini : %s ",current->namaPasien);
+               printf("Data baru : ");
+               scanf(" %[^\n]",&namabaru);
+               strcpy(current->namaPasien, namabaru);
+               found=1;
             break;
             case 3://kelaminpasien
-                while (current != NULL) {
-                    if (current->noPasien == nop){
-                        printf("Data saat ini : %s ",current->jenisKelamin);
-                        printf("Data baru : ");
-                        scanf(" %[^\n]",&kelaminbaru);
-                        strcpy(current->jenisKelamin, kelaminbaru);
-                        found=1;
-                        break;
-                    }
-                    current = current->next;
-                }
+                printf("Data saat ini : %s ",current->jenisKelamin);
+                printf("Data baru : ");
+                scanf(" %[^\n]",&kelaminbaru);
+                strcpy(current->jenisKelamin, kelaminbaru);
+                found=1;
             break;
             case 4://umurpasien
-                while (current != NULL) {
-                    if (current->noPasien== nop){
-                        printf("Data saat ini : %d ",current->umurPasien);
-                        printf("Data baru : ");
-                        scanf("%d",&umurbaru);
-                        current->umurPasien = umurbaru;
-                        found=1;
-                        break;
-                    }
-                    current = current->next;
-                }
+                printf("Data saat ini : %d ",current->umurPasien);
+                printf("Data baru : ");
+                scanf("%d",&umurbaru);
+                current->umurPasien = umurbaru;
+                found=1;
             break;
             case 5://obatpasien
-                while (current != NULL) {
-                    if (current->noPasien == nop){
-                        printf("Data saat ini : %s ",current->namaObat);
-                        printf("Data baru : ");
-                        scanf(" %[^\n]",&obatbaru);
-                        strcpy(current->namaObat, obatbaru);
+                printf("Data saat ini : %s ",current->namaObat);
+                printf("Data baru : ");
+                scanf(" %[^\n]",&obatbaru);
+                strcpy(current->namaObat, obatbaru);
                         found=1;
-                        break;
-                    }
-                    current = current->next;
-                }
             break;
             default:
                 printf("inputan salah");gotoxy(45,26);printf("Tekan enter untuk mengulang");getch();break;
