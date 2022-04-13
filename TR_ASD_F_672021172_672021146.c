@@ -643,7 +643,6 @@ void sortDataDescend(){
                         }
                     }
             }
-            printf("Data sudah berhasil disorting secara Descending");back();
             break;
         case 2:
             for(i = head; i != NULL; i = i->next)
@@ -674,7 +673,6 @@ void sortDataDescend(){
                         }
                     }
             }
-            printf("Data sudah berhasil disorting secara Descending");back();
             break;
         case 3:
             for(i = head; i != NULL; i = i->next)
@@ -705,7 +703,6 @@ void sortDataDescend(){
                         }
                     }
             }
-            printf("Data sudah berhasil disorting secara Descending");back();
             break;
         case 4:
             for(i = head; i != NULL; i = i->next)
@@ -736,7 +733,6 @@ void sortDataDescend(){
                         }
                     }
             }
-            printf("Data sudah berhasil disorting secara Descending");back();
             break;
         case 5:
             for(i = head; i != NULL; i = i->next)
@@ -767,7 +763,6 @@ void sortDataDescend(){
                         }
                     }
             }
-            printf("Data sudah berhasil disorting secara Descending");back();
             break;
         default:
             printf("inputan salah");gotoxy(45,26);printf("Tekan enter untuk mengulang");getch();sortDataDescend();break;
