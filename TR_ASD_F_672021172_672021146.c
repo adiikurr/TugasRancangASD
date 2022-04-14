@@ -314,7 +314,7 @@ void author(){
     gotoxy(52,10);printf("Adi Kurniawan");
     gotoxy(54,12);printf("672021172");
     gotoxy(47,14);printf("ROBERTOS HARTANTO WIJAYA");
-    gotoxy(54,16);printf("672021172");
+    gotoxy(54,16);printf("672021146");
 
 
     Sleep(1000);
