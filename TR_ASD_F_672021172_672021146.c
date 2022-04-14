@@ -96,7 +96,8 @@ void back(){
 void noData(){
     if(isEmpty(head))
     {
-        gotoxy(44,12); printf("Data dalam Database Kosong");
+        gotoxy(52,11);printf("TIDAK ADA ADATA");
+        gotoxy(51,13);printf("SILAKAN ISI DAHULU");
         back();
     }
 }
