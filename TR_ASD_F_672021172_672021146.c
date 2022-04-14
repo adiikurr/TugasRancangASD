@@ -431,7 +431,7 @@ void searchData(){
             }
             break;
         case 2:
-            gotoxy(40,15);printf("Masukan nama pasien yang ingin dicari : "); scanf(" %[^\n]", &naP);
+            gotoxy(40,15);printf("Masukan nama pasien yang ingin dicari : "); scanf(" %[^\n]", &naP);strupr(naP);
             while(current != NULL){
                     if(strcmp(current->namaPasien,naP)==0){
                         displaySearch();
@@ -442,7 +442,7 @@ void searchData(){
             }
             break;
         case 3:
-            gotoxy(40,15);printf("Masukan jenis kelamin pasien yang ingin dicari : "); scanf(" %[^\n]", &jeK);
+            gotoxy(40,15);printf("Masukan jenis kelamin pasien yang ingin dicari : "); scanf(" %[^\n]", &jeK);strupr(jeK);
             while(current != NULL){
                     if(strcmp(current->jenisKelamin , jeK)==0){
                         displaySearch();
@@ -464,7 +464,7 @@ void searchData(){
             }
             break;
         case 5:
-            gotoxy(40,15);printf("Masukan nama obat pasien yang ingin dicari : "); scanf(" %[^\n]", &naO);
+            gotoxy(40,15);printf("Masukan nama obat pasien yang ingin dicari : "); scanf(" %[^\n]", &naO);strupr(naO);
             while(current != NULL){
             if(strcmp(current->namaObat,naO)==0){
                 displaySearch(naO);
@@ -489,7 +489,12 @@ void searchData(){
 
 
 void displaySearch(){
+    int c=89,d=89;
     system("cls");
+    gotoxy(18,2);while(c--){printf("=");Sleep(2);}
+    gotoxy(45,4);printf("HASIL PENCARIAN DATABASE APOTEK");
+    gotoxy(52,5);printf("\tNAMA APOTEK");
+    gotoxy(18,7);while(d--){printf("-");Sleep(2);}
     gotoxy(20,11);printf("----------------------------------------------------------------------------------------\n");
     gotoxy(20,12);printf("| %-12s | %-25s | %-15s | %-5s | %-15s |\n","NO.PASIEN","NAMA PASIEN","JENIS KELAMIN","UMUR","NAMA OBAT");
     gotoxy(20,13);printf("----------------------------------------------------------------------------------------\n");
