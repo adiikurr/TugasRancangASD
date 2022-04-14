@@ -431,7 +431,7 @@ void searchData(){
             }
             break;
         case 2:
-            gotoxy(40,15);printf("Masukan nama pasien yang ingin dicari : "); scanf(" %[^\n]", &naP);strupr(naP);
+            gotoxy(40,15);printf("Masukan nama pasien yang ingin dicari : "); scanf(" %[^\n]", &naP);
             while(current != NULL){
                     if(strcmp(current->namaPasien,naP)==0){
                         displaySearch();
@@ -442,7 +442,7 @@ void searchData(){
             }
             break;
         case 3:
-            gotoxy(40,15);printf("Masukan jenis kelamin pasien yang ingin dicari : "); scanf(" %[^\n]", &jeK);strupr(jeK);
+            gotoxy(40,15);printf("Masukan jenis kelamin pasien yang ingin dicari : "); scanf(" %[^\n]", &jeK);
             while(current != NULL){
                     if(strcmp(current->jenisKelamin , jeK)==0){
                         displaySearch();
@@ -464,7 +464,7 @@ void searchData(){
             }
             break;
         case 5:
-            gotoxy(40,15);printf("Masukan nama obat pasien yang ingin dicari : "); scanf(" %[^\n]", &naO);strupr(naO);
+            gotoxy(40,15);printf("Masukan nama obat pasien yang ingin dicari : "); scanf(" %[^\n]", &naO);
             while(current != NULL){
             if(strcmp(current->namaObat,naO)==0){
                 displaySearch(naO);
