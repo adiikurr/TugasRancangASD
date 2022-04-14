@@ -119,28 +119,20 @@ void writeFile()
     FILE *fptr = fopen("Database Apotek.txt","w");
     struct Apotek *current = head;
 
+    gotoxy(52,11);printf("DATA SUDAH DICETAK");
+    gotoxy(51,13);printf("SILAHKAN LIAT DATABASE");
     fprintf(fptr, "----------------------------------------------------------------------------------------\n");
     fprintf(fptr, "| %-12s | %-25s | %-15s | %-5s | %-15s |\n","NO.PASIEN","NAMA PASIEN","JENIS KELAMIN","UMUR","NAMA OBAT");
     fprintf(fptr, "----------------------------------------------------------------------------------------\n");
     while(current != NULL)
         {
             fprintf(fptr, "| %-12d | %-25s | %-15s | %-5d | %-15s |\n", current->noPasien,current->namaPasien ,current->jenisKelamin,current->umurPasien,current->namaObat);
-            fprintf(fptr, "----------------------------------------------------------------------------------------\n");
             current = current->next;
         }
-
+    fprintf(fptr, "----------------------------------------------------------------------------------------\n");
     fclose(fptr);
     back();
 
-}
-
-void resetData(){
-    struct Apotek *temp = head, *next;
-    while(temp != NULL){
-        temp = temp->next;
-        free(head);
-        head = temp;
-    }
 }
 
 void InsertData(struct Apotek apotek)
