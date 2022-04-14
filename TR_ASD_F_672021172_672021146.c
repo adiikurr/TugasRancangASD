@@ -974,7 +974,7 @@ void updateData(){
             while (current != NULL) {
                 if (current->noPasien==nop){
                     gotoxy(45,16);printf("Data saat ini : %s ",current->namaPasien);
-                    gotoxy(45,17);printf("Data baru : ");scanf(" %[^\n]",&namabaru);
+                    gotoxy(45,17);printf("Data baru : ");scanf(" %[^\n]",&namabaru);strupr(namabaru);
                     strcpy(current->namaPasien, namabaru);
                     gotoxy(45,20);printf("Data berhasil diedit");
                     found=1;
@@ -989,7 +989,7 @@ void updateData(){
             while (current != NULL) {
                 if (current->noPasien==nop){
                     gotoxy(45,16);printf("Data saat ini : %s ",current->jenisKelamin);
-                    gotoxy(45,17);printf("Data baru : ");scanf(" %[^\n]",&kelaminbaru);
+                    gotoxy(45,17);printf("Data baru : ");scanf(" %[^\n]",&kelaminbaru);strupr(kelaminbaru);
                     strcpy(current->jenisKelamin, kelaminbaru);
                     gotoxy(45,20);printf("Data berhasil diedit");
                     found=1;
@@ -1003,7 +1003,7 @@ void updateData(){
             while (current != NULL) {
                 if (current->noPasien==nop){
                     gotoxy(45,16);printf("Data saat ini : %s ",current->namaObat);
-                    gotoxy(45,17);printf("Data baru : ");scanf(" %[^\n]",&obatbaru);
+                    gotoxy(45,17);printf("Data baru : ");scanf(" %[^\n]",&obatbaru);strupr(obatbaru);
                     strcpy(current->namaObat,obatbaru);
                     gotoxy(45,20);printf("Data berhasil diedit");
                     found=1;
