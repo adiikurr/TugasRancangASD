@@ -169,10 +169,10 @@ void InsertData(struct Apotek apotek)
         for(i=0;i<bdata;i++){
             current = (struct Apotek*)malloc(sizeof(struct Apotek));
             gotoxy(35,12+(i*6));printf("Masukan Nomor Pasien            : "); scanf("%d", &current->noPasien);
-            gotoxy(35,13+(i*6));printf("Masukan Nama Pasien             : "); scanf(" %[^\n]", current->namaPasien);
-            gotoxy(35,14+(i*6));printf("Masukan Jenis Kelamin Pasien    : "); scanf(" %[^\n]", current->jenisKelamin);
+            gotoxy(35,13+(i*6));printf("Masukan Nama Pasien             : "); scanf(" %[^\n]", current->namaPasien);strupr(current->namaPasien);
+            gotoxy(35,14+(i*6));printf("Masukan Jenis Kelamin Pasien    : "); scanf(" %[^\n]", current->jenisKelamin);strupr(current->jenisKelamin);
             gotoxy(35,15+(i*6));printf("Masukan Umur Pasien             : "); scanf("%i", &current->umurPasien);
-            gotoxy(35,16+(i*6));printf("Masukan Nama Obat Pasien        : "); scanf(" %[^\n]", current->namaObat);
+            gotoxy(35,16+(i*6));printf("Masukan Nama Obat Pasien        : "); scanf(" %[^\n]", current->namaObat);strupr(current->namaObat);
             printf("\n");
 
         if(isEmpty(head))
@@ -211,10 +211,10 @@ void addData(){
        for(i=0;i<s;i++){
             current = (struct Apotek*)malloc(sizeof(struct Apotek));
             gotoxy(40,12+(i*6));printf("Masukan Nomor Pasien            : "); scanf("%d", &current->noPasien);
-            gotoxy(40,13+(i*6));printf("Masukan Nama Pasien             : "); scanf(" %[^\n]", current->namaPasien);
-            gotoxy(40,14+(i*6));printf("Masukan Jenis Kelamin Pasien    : "); scanf(" %[^\n]", current->jenisKelamin);
+            gotoxy(40,13+(i*6));printf("Masukan Nama Pasien             : "); scanf(" %[^\n]", current->namaPasien);strupr(current->namaPasien);
+            gotoxy(40,14+(i*6));printf("Masukan Jenis Kelamin Pasien    : "); scanf(" %[^\n]", current->jenisKelamin);strupr(current->jenisKelamin);
             gotoxy(40,15+(i*6));printf("Masukan Umur Pasien             : "); scanf("%i", &current->umurPasien);
-            gotoxy(40,16+(i*6));printf("Masukan Nama Obat Pasien        : "); scanf(" %[^\n]", current->namaObat);
+            gotoxy(40,16+(i*6));printf("Masukan Nama Obat Pasien        : "); scanf(" %[^\n]", current->namaObat);strupr(current->namaObat);
             printf("\n");
 
         if(isEmpty(head))
