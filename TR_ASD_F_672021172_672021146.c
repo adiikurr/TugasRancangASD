@@ -18,6 +18,7 @@
 #define BKSP 8
 #define TAB 9
 
+
 struct Apotek
 {
     int umurPasien,noPasien;
@@ -41,24 +42,24 @@ void menu()
 
     int pilihan=0,a=70,b=70,c=70,d=70;
     system("cls");
-    gotoxy(25,4);while(a--){printf("=");}//Sleep(5);}
-    gotoxy(40,6);printf("SELAMAT DATANG DI DATABASE APOTEK\n");
-    gotoxy(43,7);printf("\t  RAJANYA OBAT\n");
-    gotoxy(25,9);while(b--){printf("-");}//Sleep(5);}
-    gotoxy(40,11);printf("Tekan 1. Mencetak Database ke File Text");
-    gotoxy(40,12);printf("Tekan 2. Membuat Data Baru ke Database");
-    gotoxy(40,13);printf("Tekan 3. Menambah Data ke Database");
-    gotoxy(40,14);printf("Tekan 4. Menampilkan Isi Database");
-    gotoxy(40,15);printf("Tekan 5. Mengupdate Data di Database");
-    gotoxy(40,16);printf("Tekan 6. Menghapus Data di Database");
-    gotoxy(40,17);printf("Tekan 7. Mencari Data di Database");
-    gotoxy(40,18);printf("Tekan 8. Mengurutkan Data di Database");
-    gotoxy(40,19);printf("Tekan 9. Melihat Riwayat Aktivitas di Database");
-    gotoxy(40,20);printf("Tekan 10. Keluar Dari Program");
-    gotoxy(25,22);while(c--){printf("=");}//Sleep(5);
-    gotoxy(40,24);printf("Masukkan Pilihan = ");
-    gotoxy(25,26);while(d--){printf("-");}//Sleep(5);
-    gotoxy(60,24);scanf("%d", &pilihan);
+    gotoxy(25,2);while(a--){printf("=");Sleep(5);}
+    gotoxy(40,4);printf("SELAMAT DATANG DI DATABASE APOTEK\n");
+    gotoxy(43,5);printf("\t  RAJANYA OBAT\n");
+    gotoxy(25,7);while(b--){printf("-");Sleep(5);}
+    gotoxy(40,9);printf("Tekan 1. Mencetak Database ke File Text");
+    gotoxy(40,10);printf("Tekan 2. Membuat Data Baru ke Database");
+    gotoxy(40,11);printf("Tekan 3. Menambah Data ke Database");
+    gotoxy(40,12);printf("Tekan 4. Menampilkan Isi Database");
+    gotoxy(40,13);printf("Tekan 5. Mengupdate Data di Database");
+    gotoxy(40,14);printf("Tekan 6. Menghapus Data di Database");
+    gotoxy(40,15);printf("Tekan 7. Mencari Data di Database");
+    gotoxy(40,16);printf("Tekan 8. Mengurutkan Data di Database");
+    gotoxy(40,17);printf("Tekan 9. Melihat Riwayat Aktivitas di Database");
+    gotoxy(40,18);printf("Tekan 10. Keluar Dari Program");
+    gotoxy(25,20);while(c--){printf("=");Sleep(5);}
+    gotoxy(40,22);printf("Masukkan Pilihan = ");
+    gotoxy(25,24);while(d--){printf("-");Sleep(5);}
+    gotoxy(60,22);scanf("%d", &pilihan);
 
     do{
             switch(pilihan){
@@ -94,6 +95,8 @@ void back(){
 }
 
 void noData(){
+    int a=45,b=45,c=9,d=9,x=0;
+
     if(isEmpty(head))
     {
         gotoxy(52,11);printf("TIDAK ADA ADATA");
@@ -146,11 +149,11 @@ void InsertData(struct Apotek apotek)
         resetData();
     }
     fflush(stdin);
-    gotoxy(25,2);while(b--){printf("=");}//Sleep(2);}
+    gotoxy(25,2);while(b--){printf("=");Sleep(2);}
     gotoxy(45,4);printf("MENU MEMBUAT DATABASE BARU \n");
     gotoxy(52,5);printf("\tAPOTEK\n");
-    gotoxy(25,7);while(c--){printf("=");}//Sleep(2);}
-    gotoxy(25,10);while(d--){printf("=");}//Sleep(2);}
+    gotoxy(25,7);while(c--){printf("=");Sleep(2);}
+    gotoxy(25,10);while(d--){printf("=");Sleep(2);}
     gotoxy(35,8);printf("MAKSIMAL DATA YANG DAPAT DIINPUT ADALAH 5\n");
     gotoxy(35,9);printf("Masukkan Jumlah Data yang Ingin Di Input : ");scanf("%d",&bdata);
 
@@ -188,11 +191,11 @@ void addData(){
     int i,s,a=70,b=70,c=70;
     max = 5-bdata;
 
-    gotoxy(25,2);while(a--){printf("=");}//Sleep(5);}
+    gotoxy(25,2);while(a--){printf("=");Sleep(5);}
     gotoxy(45,4);printf("MENU MENAMBAH DATA DI DATABASE \n");
     gotoxy(52,5);printf("\tAPOTEK");
-    gotoxy(25,7);while(b--){printf("-");}//Sleep(5);}
-    gotoxy(25,10);while(c--){printf("=");}//Sleep(2);}
+    gotoxy(25,7);while(b--){printf("-");Sleep(2);}
+    gotoxy(25,10);while(c--){printf("=");Sleep(2);}
     gotoxy(35,8);printf("MAKSIMAL DATA YANG DAPAT DIINPUT ADALAH %d\n",max);
     gotoxy(35,9);printf("Masukkan Jumlah Data yang Ingin di Tambah : ");scanf("%d",&s);
 
@@ -228,10 +231,10 @@ void addData(){
 
 void DisplayData(){
     int a=14,b=89,c=89,d=89;
-    gotoxy(18,2);while(c--){printf("=");}//Sleep(5);}
+    gotoxy(18,2);while(c--){printf("=");Sleep(2);}
     gotoxy(50,4);printf("CETAK DATABASE APOTEK");
     gotoxy(52,5);printf("\tNAMA APOTEK");
-    gotoxy(18,7);while(d--){printf("-");}//Sleep(5);}
+    gotoxy(18,7);while(d--){printf("-");Sleep(2);}
     noData();
 
     int i=3;
@@ -329,10 +332,10 @@ exit(0);
 
 void deleteData(){
     int h=70,l=70;
-    gotoxy(25,4);while(h--){printf("=");}//Sleep(5);}
+    gotoxy(25,4);while(h--){printf("=");Sleep(2);}
     gotoxy(45,6);printf("MENGHAPUS DATA PASIEN APOTEK");
     gotoxy(55,7);printf("NAMA APOTEK\n");
-    gotoxy(25,9);while(l--){printf("-");}//Sleep(5);}
+    gotoxy(25,9);while(l--){printf("-");Sleep(2);}
     noData();
 
     int a=0,nomor,b,ada=0;char del,y;
@@ -398,17 +401,17 @@ void deleteData(){
 
 void searchData(){
     int h=70,l=70;
-    gotoxy(25,4);while(h--){printf("=");Sleep(5);}
-    gotoxy(45,6);printf("MENCARI DATA PASIEN APOTEK");
-    gotoxy(53,7);printf("NAMA APOTEK\n");
-    gotoxy(25,9);while(l--){printf("-");Sleep(5);}
+    system("cls");
+    gotoxy(25,2);while(h--){printf("=");Sleep(2);}
+    gotoxy(45,4);printf("MENCARI DATA PASIEN APOTEK");
+    gotoxy(53,5);printf("NAMA APOTEK\n");
+    gotoxy(25,7);while(l--){printf("-");Sleep(2);}
     noData();
 
 
     int noP, found = 0,f,uP;
     char naP[30],jeK[30],naO[30];
     current=head;
-    gotoxy(43,6);printf("=== Mencari data pasien apotek ===");
     gotoxy(40,9);printf("Apa yang ingin Anda cari?");
     gotoxy(40,10);printf("1. Nomor Pasien \t\t3. Jenis Kelamin");
     gotoxy(40,11);printf("2. Nama Pasien\t\t\t4. Umur");
@@ -428,7 +431,7 @@ void searchData(){
             }
             break;
         case 2:
-            gotoxy(40,15);printf("Masukan nama pasien yang ingin dicari : "); scanf(" %[^\n]", &naP);
+            gotoxy(40,15);printf("Masukan nama pasien yang ingin dicari : "); scanf(" %[^\n]", &naP);strupr(naP);
             while(current != NULL){
                     if(strcmp(current->namaPasien,naP)==0){
                         displaySearch();
@@ -439,7 +442,7 @@ void searchData(){
             }
             break;
         case 3:
-            gotoxy(40,15);printf("Masukan jenis kelamin pasien yang ingin dicari : "); scanf(" %[^\n]", &jeK);
+            gotoxy(40,15);printf("Masukan jenis kelamin pasien yang ingin dicari : "); scanf(" %[^\n]", &jeK);strupr(jeK);
             while(current != NULL){
                     if(strcmp(current->jenisKelamin , jeK)==0){
                         displaySearch();
@@ -461,7 +464,7 @@ void searchData(){
             }
             break;
         case 5:
-            gotoxy(40,15);printf("Masukan nama obat pasien yang ingin dicari : "); scanf(" %[^\n]", &naO);
+            gotoxy(40,15);printf("Masukan nama obat pasien yang ingin dicari : "); scanf(" %[^\n]", &naO);strupr(naO);
             while(current != NULL){
             if(strcmp(current->namaObat,naO)==0){
                 displaySearch(naO);
@@ -500,9 +503,9 @@ void historyData(){
 
 void sortData(){
     int ad=0,a=70,b=70;
-    gotoxy(25, 2); while(a--){printf("="); Sleep(5);}
+    gotoxy(25, 2); while(a--){printf("="); Sleep(2);}
     gotoxy(35, 4); printf("\t PENGURUTAN DATABASE BERDASARKAN");
-    gotoxy(25, 6); while(b--){printf("="); Sleep(5);}
+    gotoxy(25, 6); while(b--){printf("="); Sleep(2);}
     noData();
 
     gotoxy(40,8);printf("Pilih (1/2)");
@@ -522,9 +525,9 @@ void sortDataAscend(){
     struct Apotek *i, *j;
     int tempInt,pilih,a=70,b=70;
     char tempChar[100];
-    gotoxy(25, 2); while(a--){printf("="); Sleep(5);}
+    gotoxy(25, 2); while(a--){printf("="); Sleep(2);}
     gotoxy(35, 4); printf("\tPENGURUTAN SECARA ASCENDING");
-    gotoxy(25, 6); while(b--){printf("="); Sleep(5);}
+    gotoxy(25, 6); while(b--){printf("="); Sleep(2);}
     gotoxy(40,9);printf("Apa yang ingin anda sortir?");
     gotoxy(40,10);printf("1. Nomor Pasien \t\t4. Umur");
     gotoxy(40,11);printf("2. Nama Pasien\t\t\t5. Nama Obat3");
@@ -862,17 +865,17 @@ void sortDataDescend(){
 
 void updateData(){
     int k=70,w=70;
-    gotoxy(25,2);while(k--){printf("=");Sleep(5);}
+    gotoxy(25,2);while(k--){printf("=");Sleep(2);}
     gotoxy(45,4);printf("MENCARI DATA PASIEN APOTEK");
     gotoxy(53,5);printf("NAMA APOTEK\n");
-    gotoxy(25,7);while(w--){printf("-");Sleep(5);}
+    gotoxy(25,7);while(w--){printf("-");Sleep(2);}
     noData();
 
     struct Apotek *current;
     char namabaru[100],kelaminbaru[100],obatbaru[100],ch;
     int edit=0,umurbaru,ada=0,i=0,j,found=0,nop,nobaru,pil,a=70,b=70,c=70,h=30,l=30,t=7;
     current=head;
-    
+
     gotoxy(35, 9); printf("\tEdit Data Berdasarkan Nomor Pasien");
     gotoxy(40,10);printf("1. Nomor Pasien \t 4. Nama Obat");
     gotoxy(40,11);printf("2. Nama Pasien\t\t 5. Umur");
@@ -963,6 +966,6 @@ void updateData(){
 
 int main(){
     //loading();
-    //login();
+    login();
     menu();
 }
