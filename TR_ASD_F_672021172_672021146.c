@@ -44,7 +44,7 @@ void menu()
     struct Apotek apotek;
 
     int pilihan=0,a=70,b=70,c=70,d=70;
-    system("cls");
+    system("cls"); system("color B0");
     gotoxy(25,2);while(a--){printf("=");Sleep(5);}
     gotoxy(40,4);printf("SELAMAT DATANG DI DATABASE APOTEK\n");
     gotoxy(43,5);printf("\t  RAJANYA OBAT\n");
@@ -66,19 +66,19 @@ void menu()
 
     do{
             switch(pilihan){
-                case 1:system("cls");writeFile();break;
-                case 2:system("cls");InsertData(apotek);break;
-                case 3:system("cls");addData();break;
-                case 4:system("cls");DisplayData();break;
-                case 5:system("cls");updateData();break;
-                case 6:system("cls");deleteData();break;
-                case 7:system("cls");searchData();break;
-                case 8:system("cls");sortData();break;
-                case 9:system("cls");historyData();break;
-                case 10:system("cls");author();break;
+                case 1:system("cls"); system("color A0"); writeFile(); break;
+                case 2:system("cls"); system("color A0"); InsertData(apotek); break;
+                case 3:system("cls"); system("color A0"); addData(); break;
+                case 4:system("cls"); system("color A0"); DisplayData(); break;
+                case 5:system("cls"); system("color A0"); updateData(); break;
+                case 6:system("cls"); system("color A0"); deleteData(); break;
+                case 7:system("cls"); system("color A0"); searchData(); break;
+                case 8:system("cls"); system("color A0"); sortData(); break;
+                case 9:system("cls"); system("color A0"); historyData(); break;
+                case 10:system("cls"); system("color A0"); author(); break;
                 default:gotoxy(43,27);printf("Masukan pilihan dari 1 sampai 8 saja");
                         gotoxy(45,28);printf("Tekan enter untuk kembali");
-                        getch();system("cls");
+                        getch();
                         menu();
                 }
         }while(pilihan != 10);
@@ -140,9 +140,9 @@ void InsertData(struct Apotek apotek)
     struct Apotek *temp;
     int i,a=12,b=70,c=70,d=70;
 
-    if(bdata>0){
+    /*if(bdata>0){
         resetData();
-    }
+    }*/
     fflush(stdin);
     gotoxy(25,2);while(b--){printf("=");Sleep(2);}
     gotoxy(45,4);printf("MENU MEMBUAT DATABASE BARU \n");
@@ -176,7 +176,7 @@ void InsertData(struct Apotek apotek)
         }tail->next = NULL;//2 -> 3 = NULL || 0 -> 1 = NULL
         }
     }
-    gotoxy(35,14+(i*6));printf("Kata Berhasil Dibuat dan Ditambahkan");
+    gotoxy(35,14+(i*6));printf("Data Berhasil Dibuat dan Ditambahkan");
     gotoxy(35,15+(i*6));printf("Tekan enter untuk kembali");
     getch();
     menu();
@@ -218,7 +218,7 @@ void addData(){
         }tail->next = NULL;
         bdata++;
         }
-        gotoxy(35,14+(i*6));printf("Kata Berhasil Dibuat dan Ditambahkan");
+        gotoxy(35,14+(i*6));printf("Data Berhasil Dibuat dan Ditambahkan");
         gotoxy(35,15+(i*6));printf("Tekan enter untuk kembali");getch();menu();
      }
 
@@ -255,7 +255,7 @@ void login(){
     int i = 0;char ch;
     time(&tm);
 
-    system("cls");
+    system("cls"); system("color 90");
     gotoxy(35,8);printf("+");while(a--){printf("=");Sleep(7);}printf("+");
     gotoxy(81,14);printf("+");
     while(c--){gotoxy(81,13-c);printf("|");Sleep(7);}
@@ -396,7 +396,7 @@ void deleteData(){
 
 void searchData(){
     int h=70,l=70;
-    system("cls");
+    system("cls"); 
     gotoxy(25,2);while(h--){printf("=");Sleep(2);}
     gotoxy(45,4);printf("MENCARI DATA PASIEN APOTEK");
     gotoxy(53,5);printf("NAMA APOTEK\n");
