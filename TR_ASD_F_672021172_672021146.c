@@ -8,9 +8,6 @@
 */
 // Data Apotek (No pasien, Nama Pasien, Jenis Kelamin, Umur Pasien, Nama Obat)
 
-//YANG BELUM WARNA
-//HISTORY
-
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -21,21 +18,12 @@
 #define BKSP 8
 #define TAB 9
 
-
 struct Apotek
 {
     int umurPasien,noPasien;
     char namaPasien[100], namaObat[100], jenisKelamin[100];
     struct Apotek *next;
 }*head,*current,*tail;
-//struct node
-//{
-//    struct Apotek apotek;
-//    struct node *next;
-//};
-
-//struct node *head = NULL;
-//struct node *tail = NULL;
 
 int bdata=0,max=0;
 
@@ -81,7 +69,7 @@ void menu()
                         getch();
                         menu();
                 }
-        }while(pilihan != 10);
+    }while(pilihan != 10);
 }
 
 void gotoxy(int x, int y){
@@ -102,7 +90,7 @@ void noData(){
 
     if(isEmpty(head))
     {
-        gotoxy(52,11);printf("TIDAK ADA ADATA");
+        gotoxy(52,11);printf("TIDAK ADA DATA");
         gotoxy(51,13);printf("SILAKAN ISI DAHULU");
         back();
     }
@@ -132,7 +120,6 @@ void writeFile()
     fprintf(fptr, "----------------------------------------------------------------------------------------\n");
     fclose(fptr);
     back();
-
 }
 
 void InsertData(struct Apotek apotek)
@@ -140,9 +127,6 @@ void InsertData(struct Apotek apotek)
     struct Apotek *temp;
     int i,a=12,b=70,c=70,d=70;
 
-    /*if(bdata>0){
-        resetData();
-    }*/
     fflush(stdin);
     gotoxy(25,2);while(b--){printf("=");Sleep(2);}
     gotoxy(45,4);printf("MENU MEMBUAT DATABASE BARU \n");
@@ -171,9 +155,9 @@ void InsertData(struct Apotek apotek)
         {
             head = tail = current;
         }else {
-            tail->next = current;//posisi ke (1) -> (2) = curent
-            tail = current;//tail = 1 -> 2
-        }tail->next = NULL;//2 -> 3 = NULL || 0 -> 1 = NULL
+            tail->next = current;   //posisi ke (1) -> (2) = curent
+            tail = current;         //tail = 1 -> 2
+        }tail->next = NULL;         //2 -> 3 = NULL || 0 -> 1 = NULL
         }
     }
     gotoxy(35,14+(i*6));printf("Data Berhasil Dibuat dan Ditambahkan");
@@ -300,9 +284,6 @@ void login(){
     }
 }
 
-void loading(){
-}
-
 void author(){
     int a=45,b=45,c=9,d=9,x=0;
     gotoxy(35,8);printf("+");while(a--){printf("=");Sleep(7);}printf("+");
@@ -311,7 +292,7 @@ void author(){
     while(b--){gotoxy(36+b,18);printf("=");Sleep(7);}
     gotoxy(35,18);printf("+");
     while(d--){gotoxy(35,9+d);printf("|");Sleep(7);}
-    gotoxy(52,10);printf("Adi Kurniawan");
+    gotoxy(52,10);printf("ADI KURNIAWAN");
     gotoxy(54,12);printf("672021172");
     gotoxy(47,14);printf("ROBERTOS HARTANTO WIJAYA");
     gotoxy(54,16);printf("672021146");
@@ -388,11 +369,9 @@ void deleteData(){
     }
     else if(del=='n'||del=='N'){
             gotoxy(45,22);printf("Data batal dihapus");
-            gotoxy(45,23);printf("Klik terserah untuk lanjut");back();
+            gotoxy(45,23);back();
     }
 }
-
-
 
 void searchData(){
     int h=70,l=70;
@@ -402,7 +381,6 @@ void searchData(){
     gotoxy(53,5);printf("NAMA APOTEK\n");
     gotoxy(25,7);while(l--){printf("-");Sleep(2);}
     noData();
-
 
     int noP, found = 0,f,uP;
     char naP[30],jeK[30],naO[30];
@@ -473,15 +451,12 @@ void searchData(){
             gotoxy(50,17);printf("Pilihan tidak ada");getch();searchData();
         }
 
-
         if(found == 0)
         {
             gotoxy(50,17);printf("Data yang dicari tidak ditemukan!");getch();searchData();
         }
         back();
-
 }
-
 
 void displaySearch(){
     int c=89,d=89;
@@ -518,7 +493,6 @@ void sortData(){
         case 2:system("cls");sortDataDescend();break;
         default:gotoxy(45,25);printf("Pilihan tidak tersedia");gotoxy(45,26);printf("Tekan enter untuk kembali");getch();sortData();break;
     }
-
 }
 
 void sortDataAscend(){
@@ -908,7 +882,6 @@ void updateData(){
                     break;
                 }
                 current=current->next;
-
             }
             break;
         case 3://kelaminpasien
@@ -961,11 +934,9 @@ void updateData(){
             updateData();
             }
             back();
-
 }
 
 int main(){
-    //loading();
     login();
     menu();
 }
