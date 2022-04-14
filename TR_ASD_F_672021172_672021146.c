@@ -8,6 +8,9 @@
 */
 // Data Apotek (No pasien, Nama Pasien, Jenis Kelamin, Umur Pasien, Nama Obat)
 
+//YANG BELUM WARNA
+//HISTORY
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
